@@ -11,7 +11,7 @@ body {
     flex-direction: row;
 }
 
-.option-bank {
+.option-container {
     margin: 0 auto;
     width: 20%;
     text-align: center;
@@ -29,6 +29,7 @@ body {
     padding-top: 1%;
     padding-bottom: 1%;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .answer-word {
@@ -36,6 +37,7 @@ body {
     border: 1px solid;
     margin: 0.25%;
     padding: 0.25%;
+    cursor: pointer;
 }
 
 .answer-template,
