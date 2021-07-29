@@ -1,0 +1,46 @@
+body {
+    background-color: #ACDEFE;
+}
+
+.answer-container {
+    display: flex;
+    margin: 0 auto;
+    padding: 2%;
+    font-weight: bold;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.option-bank {
+    margin: 0 auto;
+    width: 20%;
+    text-align: center;
+    padding: 2%;
+    border: 5px solid black;
+}
+
+.option-word {
+    border: 2px solid;
+    background-color: white;
+    margin: 2.5%;
+    display: inline-flex;
+    padding-right: 3%;
+    padding-left: 3%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    font-weight: bold;
+}
+
+.answer-word {
+    text-align: center;
+    border: 1px solid;
+    margin: 0.25%;
+    padding: 0.25%;
+}
+
+.answer-template,
+.answer-empty {
+    text-align: center;
+    margin: 0.25%;
+    padding: 0.25%;
+}
