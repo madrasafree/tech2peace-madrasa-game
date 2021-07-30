@@ -2,71 +2,90 @@ import React, { useState } from "react";
 import * as utils from "../utils";
 import '../style.css'
 
-const ANSWER_TEMPLATE = "<div class='answer-template'>%s</div>";
-const ANSWER_EMPTY = "<div class='answer-empty'>_____</div>";
-const ANSWER_WORD = "<div class='answer-word'>%s</div>";
-const OPTION_WORD = "<div class='option-word'>%s</div>";
-const isTemplate = (word) => word === '%s';
+let question = "What is my name?";
+// let answerTemplate = "";
+let answerTemplate = "שלום שמי %s ואני אוהב לאכול %s מאוד.";
+let initialOptions = ["משה", "אברהם", "יעקב", "פיצה", "סושי"];
 
-let answer_template = "hello my %s is %s.";
-let answers = [];
-let initialOptions = ["hello", "my", "name", "is", "bob"];
-
-let max_answers = (answer_template.match(/%s/g) || []).length;
+let max_answers = (answerTemplate.match(/%s/g) || []).length;
 
 export const Game = () => {
     const [answers, setAnswers] = useState([]);
     const [options, setOptions] = useState(initialOptions);
+    const is_orderable = (answerTemplate === "");
+    console.log(answers)
 
-    const fullAnswers = [];
-    const templates = utils.split_template(answer_template);
-    let answer_index = 0;
-    for (const template of templates) {
-        if (template === "%s") {
-            var answer = answers[answer_index++];
-            if (answer === undefined) {
-                fullAnswers.push({ text: '_____', className: 'answer-empty' });
-            } else {
-                fullAnswers.push({ text: answer, className: 'answer-word' });
-            }
-        } else {
-            fullAnswers.push({ text: template, className: 'answer-template' });
+
+    function makeFullAnswers() {
+        let fullAnswers = [];
+        if (is_orderable) {
+            answers.forEach((answer) => {fullAnswers.push({ text: answer, className: 'answer-word' })})
+            return fullAnswers;
         }
+        const templates = utils.split_template(answerTemplate);
+        let answer_index = 0;
+        for (const template of templates) {
+            if (template === "%s") {
+                let answer = answers[answer_index++];
+                if (answer === undefined) {
+                    fullAnswers.push({ text: '_____', className: 'answer-empty' });
+                } else {
+                    fullAnswers.push({ text: answer, className: 'answer-word' });
+                }
+            } else {
+                fullAnswers.push({ text: template, className: 'answer-template' });
+            }
+        }
+        return fullAnswers
     }
+    const fullAnswers = makeFullAnswers();
+    
 
     const onAnswerClick = function(word, index) {
         let realIndex = index;
-        console.log({fullAnswers})
         fullAnswers.forEach(({ className }, fullAnswerIndex) => {
-            if(fullAnswerIndex <= index && className !== "answer-word") {
+            if(fullAnswerIndex <= index && className === "answer-template") {
                 realIndex--;
             }
         });
 
-        console.table({ realIndex, word })
         const newAnswers = [...answers];
-        newAnswers.splice(realIndex, 1)
+        if (!is_orderable) {
+            newAnswers.splice(realIndex, 1, undefined)
+        }
+        else {
+            newAnswers.splice(realIndex, 1)
+        }
         setAnswers(newAnswers);
         setOptions([...options, word]);
     }
 
     const onOptionClick = function(option, index) {
-        if(answers.length === max_answers) {
+        if(!is_orderable && answers.filter((a) => a !== undefined).length === max_answers) {
             return null;
         }
-
         const newOptions = [...options];
         newOptions.splice(index, 1)
+        const newAnswers = [...answers]
+        const undefined_index = newAnswers.indexOf(undefined)
+        if (undefined_index !== -1) {
+            newAnswers[undefined_index] = option;
+        }
+        else {
+            newAnswers.push(option)
+        }
+
         setOptions(newOptions);
-        setAnswers([...answers, option]);
+        setAnswers(newAnswers);
     }
 
     return (
         <>
+            <div className='question-container'>{question}</div>
             <div className='answer-container'>
                 {
                         fullAnswers.map(({ text, className }, index) => (
-                            <div onClick={() => onAnswerClick(text, index)} className={className}>
+                            <div onClick={className === "answer-word" ? () => onAnswerClick(text, index) : () => {} } className={className}>
                                 {text}
                             </div>
                         ))
