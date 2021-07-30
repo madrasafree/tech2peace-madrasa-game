@@ -43,7 +43,7 @@ export const Story = () => {
                     <div className="paragraph-card">
                         <div className="paragraph-text">{rest.text}</div>
                         {index === currentStoryIndex && index !== (storyData.length - 1) && (
-                        <button onClick={onNextStory} className="paragraph-next-button">{storyData[index + 1].type === 'paragraph' ? 'next' : 'Show question!'}</button>)}
+                        <div onClick={onNextStory} className="next-button"/>)}
                     </div>
                     ) : (
                         <Question

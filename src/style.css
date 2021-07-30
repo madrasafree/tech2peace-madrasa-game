@@ -48,6 +48,8 @@ body {
     min-height: 100px;
     border-radius: 10px;
     padding: 20px;
+    position: relative;
+
 }
 
 /* .option-word {
@@ -97,9 +99,12 @@ body {
 .next-button {
     text-shadow: 0px 4px black;
     color: #8dc046;
-    font-size: xxx-large;
+    font-size: 45px;
     cursor: pointer;
     -webkit-text-stroke: 1px black;
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
 }
 
 .next-button::after {
@@ -120,13 +125,13 @@ body {
 .answer-correct-text::after {
     content: "מומתאז! ✔";
 }
-    /* Storyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy */
-    .paragraph-container {
-        display: flex;
-        flex-direction: column;
-        min-height: 500px;
-    }
-    
+/* Storyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy */
+.paragraph-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 500px;
+}
+
 .paragraph-card {
     margin: 20px auto;
     width: 60%;
@@ -136,17 +141,15 @@ body {
     min-height: 100px;
     border-radius: 10px;
     padding: 20px;
+    position: relative;
+    box-shadow: 3px 6px #88888869;
 }
 
 .paragraph-text {
     flex: 4;
 }
 
-.paragraph-next-button {
-    border-left: 2px solid lightsalmon;
-    flex: 0.5;
-    margin-left: 10px;
-    border: none;
-    border-radius: 4px;
-    background-color: rgb(201, 228, 201);
+.question {
+    margin-top: 40px;
 }
+

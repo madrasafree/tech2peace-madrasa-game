@@ -93,7 +93,7 @@ export const Question = ({ question, answerTemplate, wordOptions, correctAnswer,
     }
 
     return (
-        <>
+        <div className='question'>
             <div className='question-container'>{question}</div>
             <div className='answer-container'>
                 {
@@ -113,10 +113,10 @@ export const Question = ({ question, answerTemplate, wordOptions, correctAnswer,
                     )) : (
                         <>
                             <div className='answer-correct-text' />
-                            {done && <div onClick={done} className="next-button">next</div>}
+                            {done && <div onClick={done} className="next-button"></div>}
                         </>)
                 }
             </div>
-        </>
+        </div>
     );
 }
