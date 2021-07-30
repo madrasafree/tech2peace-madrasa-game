@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import '../../style.css'
 import { Question } from "../Question";
-
+import storyData from '../../rawData.json'
 // story = paragrapsh + questions
 
-const storyData = [
-    {"type": "paragraph", "text": "שלום! אני הפיסקה הראשונה בסיפור"},
-    {"type": "paragraph", "text": "נעים מאוד, אני משה ואני אוהב לאכול פיצה"},
+
+
+const storyDataOld = [
+    {"type": "paragraph", "url": "text1", "text": "שלום! אני הפיסקה הראשונה בסיפור"},
+    {"type": "paragraph", "url": "text1", "text": "נעים מאוד, אני משה ואני אוהב לאכול פיצה"},
     {"type": "paragraph", "text": "אני לא אוהב לאכול סושי אבל מאוד רוצה שאנשים ילמדו ערבית :) זה יעזור לנו להכיר אחד את השני!"},
     {
         "type:": "question",
@@ -30,10 +32,12 @@ const storyData = [
 ];
 
 export const Story = () => {
-
+    // const scrollBottom = () => {window.scrollTo(0,document.body.scrollHeight)});
     const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
-    const onNextStory = () => setCurrentStoryIndex(currentStoryIndex + 1);
+    const onNextStory = () => { setCurrentStoryIndex(currentStoryIndex + 1); /* scrollBottom(); */ };
 
+
+    console.log(storyData)
     return (
         <div className="paragraph-container">
             {
@@ -47,10 +51,11 @@ export const Story = () => {
                     </div>
                     ) : (
                         <Question
+                            dummydymmt={console.log({rest})}
                             question={rest.question}
                             answerTemplate={rest.answerTemplate}
-                            wordOptions={rest.wordOptions}
-                            correctAnswer={rest.correctAnswer}
+                            wordOptions={rest.wordOptions.split(',')}
+                            correctAnswer={rest.correctAnswer.split(',')}
                             done={index === currentStoryIndex && onNextStory}
                         />
                     )

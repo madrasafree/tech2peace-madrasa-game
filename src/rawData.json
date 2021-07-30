@@ -1,0 +1,78 @@
+[
+  {
+    "type": "paragraph",
+    "text": "פי יום מן אלאיאם ראח ג'חא עלא אלסוק עשאן ישתרי חמאר",
+    "url": "p1"
+  },
+  {
+    "question": "שו ראח ג'חא ישתרי?",
+    "answerTemplate": "%s",
+    "correctAnswer": "חמאר",
+    "heb_words": "חמור",
+    "wordOptions": "חמאר,אלסוק,מי",
+    "other_words_heb": "חמור,שוק,מים",
+    "type": "question",
+    "url": "q1"
+  },
+  {
+    "type": "paragraph",
+    "text": "ור ג'חא עלא חמאר מניח ושרא מן אלבּיאע ופי אלטריק שאף את'נין חראמיה ילי כּאנוא יערפו ג'חא  אנה הו זלמה מניח",
+    "url": "p2"
+  },
+  {
+    "question": "שו שאף גוחא  בטריק חרמיי",
+    "answerTemplate": "%s",
+    "correctAnswer": "את'נין",
+    "heb_words": "שנים",
+    "wordOptions": "ואחד,תלת,חמס,את'נין",
+    "other_words_heb": "אחד,שלוש,חמש,שנים",
+    "type": "question",
+    "url": "q2"
+  },
+  {
+    "type": "paragraph",
+    "text": "ראח ג'חא יפכּ לחמאר ושאף אלחראמי מרבּוט מחל אלחמאר",
+    "url": "p3"
+  },
+  {
+    "question": "שו סרקו אל חרמיי?",
+    "answerTemplate": "%s",
+    "correctAnswer": "חמאר",
+    "heb_words": "חמור",
+    "wordOptions": "חמאר,מי,אוכל",
+    "other_words_heb": "חמור,מים.אוכל",
+    "type": "question",
+    "url": "q3"
+  },
+  {
+    "question": "מי אתה ? איפה החמור ?",
+    "answerTemplate": "מין %s? וין %s?.",
+    "correctAnswer": "אנת,אלחמאר",
+    "heb_words": "מי,איפו",
+    "wordOptions": "ליש,קיף,אנת,וינתא,אלחמאר",
+    "other_words_heb": "למה,איך",
+    "type": "question",
+    "url": "q4"
+  },
+  {
+    "question": "שו חקא אל חרמיי?",
+    "answerTemplate": "%s",
+    "correctAnswer": "קציתו",
+    "heb_words": "הסיפור שלו",
+    "wordOptions": "קצה,קצתו,קצץ",
+    "other_words_heb": "ספור,סיפורו,סיפורים",
+    "type": "question",
+    "url": "q5"
+
+  },
+  {
+    "question": "אני רוצה לספר לך את הסיפור שלי",
+    "answerTemplate": "%s %s %s %s",
+    "correctAnswer": "בדי, ג'וחא, אנא, קצתי, חמאר, אחקילק",
+    "heb_words": "רוצה, ג'וחא, אני, את הסיפור שלי, חמאר, לספר לך",
+    "wordOptions": "בדי, ג'וחא, אנא, קצתי, חמאר, אחקילק",
+    "other_words_heb": "רוצה, ג'וחא, אני, את הסיפור שלי, חמאר, לספר לך",
+    "type": "question",
+    "url": "q6"
+  }
+]
