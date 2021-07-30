@@ -10,11 +10,11 @@ body {
 }
 
 .question-container {
-    display: flex;
     margin: 0 auto;
     padding: 2%;
+    width: 60%;
     font-weight: bold;
-    justify-content: center;
+    text-align: center;
     flex-direction: row;
     direction: rtl;
     font-size: x-large;
@@ -22,7 +22,7 @@ body {
 
 .answer-container {
     margin: 0 auto;
-    width: 50%;
+    width: 60%;
     min-width: 300px;
     text-align: center;
     direction: rtl;
@@ -40,7 +40,7 @@ body {
 
 .option-container {
     margin: 20px auto;
-    width: 50%;
+    width: 60%;
     min-width: 300px;
     text-align: center;
     background-color: rgb(255, 255, 255);
@@ -109,4 +109,14 @@ body {
 .next-button:active {
     text-shadow: 0px 0px;
     transform: translateY(4px);
+}
+
+.answer-correct-text {
+    color: #8dc046;
+    font-size: xxx-large;
+    margin: 30px;
+}
+
+.answer-correct-text::after {
+    content: "מומתאז! ✔";
 }

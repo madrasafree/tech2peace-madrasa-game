@@ -5,6 +5,7 @@ import '../style.css'
 export const Question = ({question, answerTemplate, wordOptions, correctAnswer}) => {
     const [answers, setAnswers] = useState([]);
     const [options, setOptions] = useState(wordOptions);
+    const [isAnswered, setIsAnswered] = useState(false);
     
     const is_orderable = (answerTemplate === "");
     const max_answers = (answerTemplate.match(/%s/g) || []).length;
@@ -37,6 +38,10 @@ export const Question = ({question, answerTemplate, wordOptions, correctAnswer})
     
 
     const onAnswerClick = function(word, index) {
+        if (isAnswered) {
+            return
+        }
+
         let realIndex = index;
         fullAnswers.forEach(({ className }, fullAnswerIndex) => {
             if(fullAnswerIndex <= index && className === "answer-template") {
@@ -72,6 +77,12 @@ export const Question = ({question, answerTemplate, wordOptions, correctAnswer})
 
         setOptions(newOptions);
         setAnswers(newAnswers);
+
+        console.log(newAnswers)
+        console.log(correctAnswer)
+        if (utils.arraysEqual(newAnswers, correctAnswer)) {
+            setIsAnswered(true);
+        }
     }
 
     return (
@@ -90,9 +101,9 @@ export const Question = ({question, answerTemplate, wordOptions, correctAnswer})
             </div>
             <div className='option-container'>
                 {
-                    options.map((option, index) => (
+                    !isAnswered ? options.map((option, index) => (
                         <div onClick={() => onOptionClick(option, index)} className='option-word'>{option}</div>
-                    ))
+                    )) : <div className='answer-correct-text'></div>
                 }
             </div>
         </>
