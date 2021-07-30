@@ -70,20 +70,18 @@ body {
     font-weight: bold;
     cursor: pointer;
     direction: rtl;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
 }
 
 .answer-word {
     transform: translateY(-5px);
 }
-/* .answer-word {
-    background-color: white;
-    text-align: center;
-    border: 1px solid;
-    margin: 0.25%;
-    padding: 0.25% 0.5%;
-    cursor: pointer;
-    direction: rtl;
-} */
+
+.answer-word:active, .option-word:active {
+    background-color: #d0ecfd;
+}
 
 .answer-template,
 .answer-empty {
