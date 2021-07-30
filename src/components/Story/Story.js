@@ -24,9 +24,9 @@ const storyDataOld = [
     {
         "type:": "question",
         "question": "מהו שמי ומה אני אוהב לאכול?",
-        "answerTemplate": "שלום שמי %s ואני אוהב לאכול %s מאוד.",
-        "wordOptions": ["משה", "אברהם", "יעקב", "פיצה", "סושי"],
-        "correctAnswer":["משה", "פיצה"]
+        "answerTemplate": "",
+        "wordOptions": ["אני", "אוהב", "לאכול", "פיצה"],
+        "correctAnswer": ["אני", "אוהב", "לאכול", "פיצה"]
     },
     {"type": "paragraph", "text": "ממשיכים בסיפור. מעת לעת אני מטייל ואוהב לשחות"},
 ];
@@ -47,7 +47,7 @@ export const Story = () => {
                     <div className="paragraph-card">
                         <div className="paragraph-text">{rest.text}</div>
                         {index === currentStoryIndex && index !== (storyData.length - 1) && (
-                        <button onClick={onNextStory} className="paragraph-next-button">{storyData[index + 1].type === 'paragraph' ? 'next' : 'Show question!'}</button>)}
+                        <div onClick={onNextStory} className="next-button"/>)}
                     </div>
                     ) : (
                         <Question
