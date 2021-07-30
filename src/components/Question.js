@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import * as utils from "../utils";
 import '../style.css'
+import { Player } from "../hooks/use-audio";
 
-export const Question = ({ question, answerTemplate, wordOptions, correctAnswer, done }) => {
+export const Question = ({ question, answerTemplate, wordOptions, correctAnswer, done, url }) => {
     const [answers, setAnswers] = useState([]);
     const [options, setOptions] = useState(utils.shuffle(wordOptions));
     const [isAnswered, setIsAnswered] = useState(false);
@@ -12,7 +13,7 @@ export const Question = ({ question, answerTemplate, wordOptions, correctAnswer,
     //         if(done) done();
     //     }
 
-    // }, [isAnswered])
+    // }, [])
     
     const is_orderable = (answerTemplate === "");
     const max_answers = (answerTemplate.match(/%s/g) || []).length;
@@ -94,6 +95,9 @@ export const Question = ({ question, answerTemplate, wordOptions, correctAnswer,
 
     return (
         <div className='question'>
+
+            <Player url={url} />
+
             <div className='question-container'>{question}</div>
             <div className='answer-container'>
                 {

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import '../../style.css'
 import { Question } from "../Question";
 import storyData from '../../rawData.json'
+import { Player } from "../../hooks/use-audio";
 // story = paragrapsh + questions
 
 
@@ -41,14 +42,13 @@ export const Story = () => {
     return (
         <div className="paragraph-container">
             {
-                storyData.map(({ type, ...rest }, index) => (
-                    index <= currentStoryIndex && (
-                    type === 'paragraph' ? (
-                    <div className="paragraph-card">
-                        <div className="paragraph-text">{rest.text}</div>
-                        {index === currentStoryIndex && index !== (storyData.length - 1) && (
-                        <div onClick={onNextStory} className="next-button"/>)}
-                    </div>
+                storyData.map(({ type, ...rest }, index) => {
+
+                    
+                    return (
+                        index <= currentStoryIndex && (
+                            type === 'paragraph' ? (
+                                <Paragraph url={rest.url} text={rest.text} index={index} currentStoryIndex={currentStoryIndex} onNextStory={onNextStory} />
                     ) : (
                         <Question
                             dummydymmt={console.log({rest})}
@@ -57,11 +57,27 @@ export const Story = () => {
                             wordOptions={rest.wordOptions.split(',')}
                             correctAnswer={rest.correctAnswer.split(',')}
                             done={index === currentStoryIndex && onNextStory}
+                            url={rest.url}
                         />
                     )
-                )))
+                ))}
+                
+                )
             }
         </div>
 
     );
 }
+
+function Paragraph({ text, url, index, currentStoryIndex, onNextStory }) {
+    return (
+        <div className="paragraph-card">
+            <Player url={url} />
+            <div className="paragraph-text">{text}</div>
+            {index === currentStoryIndex && index !== (storyData.length - 1) && (
+            <div onClick={onNextStory} className="next-button" />)}
+        </div>
+
+    );
+}
+
