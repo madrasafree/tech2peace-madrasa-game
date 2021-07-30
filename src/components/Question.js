@@ -1,11 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as utils from "../utils";
 import '../style.css'
 
-export const Question = ({question, answerTemplate, wordOptions, correctAnswer}) => {
+export const Question = ({ question, answerTemplate, wordOptions, correctAnswer, done }) => {
     const [answers, setAnswers] = useState([]);
     const [options, setOptions] = useState(wordOptions);
     const [isAnswered, setIsAnswered] = useState(false);
+
+    // useEffect(() => {
+    //     if(isAnswered) {
+    //         if(done) done();
+    //     }
+
+    // }, [isAnswered])
     
     const is_orderable = (answerTemplate === "");
     const max_answers = (answerTemplate.match(/%s/g) || []).length;
@@ -103,7 +110,11 @@ export const Question = ({question, answerTemplate, wordOptions, correctAnswer})
                 {
                     !isAnswered ? options.map((option, index) => (
                         <div onClick={() => onOptionClick(option, index)} className='option-word'>{option}</div>
-                    )) : <div className='answer-correct-text'></div>
+                    )) : (
+                        <>
+                            <div className='answer-correct-text' />
+                            {done && <div onClick={done} className="next-button">next</div>}
+                        </>)
                 }
             </div>
         </>

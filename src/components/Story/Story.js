@@ -1,38 +1,60 @@
 import React, { useState } from "react";
 import '../../style.css'
+import { Question } from "../Question";
 
-const storyAndGameJson = [
-    {"type": "story", "text": "Hello! I am the 1st paragrapsh of the story!"},
-    {"type": "story", "text": "Now we already know each other :) By the way, my name is Elad"},
-    {"type": "story", "text": "In my free time, I like helping people study Arabic."},
+// story = paragrapsh + questions
+
+const storyData = [
+    {"type": "paragraph", "text": "שלום! אני הפיסקה הראשונה בסיפור"},
+    {"type": "paragraph", "text": "נעים מאוד, אני משה ואני אוהב לאכול פיצה"},
+    {"type": "paragraph", "text": "אני לא אוהב לאכול סושי אבל מאוד רוצה שאנשים ילמדו ערבית :) זה יעזור לנו להכיר אחד את השני!"},
     {
         "type:": "question",
-        "question": "???",
-        "template": "shu ismack %s ya ...",
-        "options": ["asdd", "asdasd", "bbb", "asdasd"],
-        "answer": ["asdd", "bbb"]
-    }
+        "question": "מהו שמי ומה אני אוהב לאכול?",
+        "answerTemplate": "שלום שמי %s ואני אוהב לאכול %s מאוד.",
+        "wordOptions": ["משה", "אברהם", "יעקב", "פיצה", "סושי"],
+        "correctAnswer":["משה", "פיצה"]
+    },
+    {"type": "paragraph", "text": "ממשיכים בסיפור. מעת לעת אני מטייל ואוהב לשחות"},
+    {"type": "paragraph", "text": "המשכנו!"},
+    {"type": "paragraph", "text": "נעים מאוד, אני משה ואני אוהב לאכול פיצה"},
+    {"type": "paragraph", "text": "אני לא אוהב לאכול סושי אבל מאוד רוצה שאנשים ילמדו ערבית :) זה יעזור לנו להכיר אחד את השני!"},
+    {
+        "type:": "question",
+        "question": "מהו שמי ומה אני אוהב לאכול?",
+        "answerTemplate": "שלום שמי %s ואני אוהב לאכול %s מאוד.",
+        "wordOptions": ["משה", "אברהם", "יעקב", "פיצה", "סושי"],
+        "correctAnswer":["משה", "פיצה"]
+    },
+    {"type": "paragraph", "text": "ממשיכים בסיפור. מעת לעת אני מטייל ואוהב לשחות"},
 ];
 
 export const Story = () => {
 
     const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
-
-    const stories = storyAndGameJson.filter(({ type }) => type === 'story');
     const onNextStory = () => setCurrentStoryIndex(currentStoryIndex + 1);
 
     return (
-        <div className="story-container">
+        <div className="paragraph-container">
             {
-                stories.map(({ text }, index) => (
+                storyData.map(({ type, ...rest }, index) => (
                     index <= currentStoryIndex && (
-                    <div className="story-card">
-                        <div className="story-text">{text}</div>
-                        {index === currentStoryIndex && index !== (stories.length - 1) && (
-                        <button onClick={onNextStory} className="story-next-button">next</button>)}
+                    type === 'paragraph' ? (
+                    <div className="paragraph-card">
+                        <div className="paragraph-text">{rest.text}</div>
+                        {index === currentStoryIndex && index !== (storyData.length - 1) && (
+                        <button onClick={onNextStory} className="paragraph-next-button">{storyData[index + 1].type === 'paragraph' ? 'next' : 'Show question!'}</button>)}
                     </div>
+                    ) : (
+                        <Question
+                            question={rest.question}
+                            answerTemplate={rest.answerTemplate}
+                            wordOptions={rest.wordOptions}
+                            correctAnswer={rest.correctAnswer}
+                            done={index === currentStoryIndex && onNextStory}
+                        />
                     )
-                ))
+                )))
             }
         </div>
 

@@ -121,13 +121,13 @@ body {
     content: "מומתאז! ✔";
 }
     /* Storyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy */
-    .story-container {
+    .paragraph-container {
         display: flex;
         flex-direction: column;
         min-height: 500px;
     }
     
-.story-card {
+.paragraph-card {
     margin: 20px auto;
     width: 60%;
     min-width: 300px;
@@ -138,11 +138,11 @@ body {
     padding: 20px;
 }
 
-.story-text {
+.paragraph-text {
     flex: 4;
 }
 
-.story-next-button {
+.paragraph-next-button {
     border-left: 2px solid lightsalmon;
     flex: 0.5;
     margin-left: 10px;
