@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import * as utils from "../utils";
 import '../style.css'
 
-let question = "What is my name?";
+let question = "מהו שמי?";
 // let answerTemplate = "";
 let answerTemplate = "שלום שמי %s ואני אוהב לאכול %s מאוד.";
 let initialOptions = ["משה", "אברהם", "יעקב", "פיצה", "סושי"];
