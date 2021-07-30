@@ -69,6 +69,7 @@ body {
     background-color: white;
     display: inline-flex;
     margin: 0px 5px;
+    margin-bottom: 10px;
     padding: 0px 5px;
     font-weight: bold;
     cursor: pointer;
@@ -97,14 +98,13 @@ body {
 }
 
 .next-button {
-    text-shadow: 0px 4px black;
+    text-shadow: 0px 4px #0000007a;
     color: #8dc046;
     font-size: 45px;
     cursor: pointer;
-    -webkit-text-stroke: 1px black;
     position: absolute;
     left: 20px;
-    bottom: 10px;
+    bottom: 5px;
 }
 
 .next-button::after {
@@ -138,11 +138,54 @@ body {
     min-width: 300px;
     background-color: rgb(255, 255, 255);
     direction: rtl;
-    min-height: 100px;
+    min-height: 80px;
     border-radius: 10px;
     padding: 20px;
     position: relative;
     box-shadow: 3px 6px #88888869;
+}
+
+
+.paragraph-bubble {
+    margin: 20px auto;
+    width: 60%;
+    min-width: 300px;
+    background-color: rgb(255, 255, 255);
+    direction: rtl;
+    min-height: 80px;
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+}
+
+.paragraph-bubble-container {
+    margin: 20px auto;
+    width: 60%;
+    min-width: 300px;
+    background-color: rgb(255, 255, 255);
+    direction: rtl;
+    min-height: 80px;
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+    box-shadow: 3px 6px #88888869;
+}
+
+.paragraph-bubble-container:after {
+	content: '';
+	position: absolute;
+	right: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 36px solid transparent;
+	border-left-color: #ffffff;
+	border-right: 0;
+	border-bottom: 0;
+	margin-top: -18px;
+	margin-right: -36px;
+    box-shadow: 0px 6px #88888869;
+
 }
 
 .paragraph-text {
