@@ -22,9 +22,9 @@ const storyData = [
     {
         "type:": "question",
         "question": "מהו שמי ומה אני אוהב לאכול?",
-        "answerTemplate": "שלום שמי %s ואני אוהב לאכול %s מאוד.",
-        "wordOptions": ["משה", "אברהם", "יעקב", "פיצה", "סושי"],
-        "correctAnswer":["משה", "פיצה"]
+        "answerTemplate": "",
+        "wordOptions": ["אני", "אוהב", "לאכול", "פיצה"],
+        "correctAnswer": ["אני", "אוהב", "לאכול", "פיצה"]
     },
     {"type": "paragraph", "text": "ממשיכים בסיפור. מעת לעת אני מטייל ואוהב לשחות"},
 ];

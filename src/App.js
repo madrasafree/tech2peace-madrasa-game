@@ -6,7 +6,6 @@ const App = () => {
   return (
     <>
       <Story />
-      {/* <Question question="מהו שמי?" answerTemplate="שלום שמי %s ואני אוהב לאכול %s מאוד." wordOptions={["משה", "אברהם", "יעקב", "פיצה", "סושי"]} correctAnswer={["משה", "פיצה"]} /> */}
     </>
   );
 };

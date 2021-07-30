@@ -4,7 +4,7 @@ import '../style.css'
 
 export const Question = ({ question, answerTemplate, wordOptions, correctAnswer, done }) => {
     const [answers, setAnswers] = useState([]);
-    const [options, setOptions] = useState(wordOptions);
+    const [options, setOptions] = useState(utils.shuffle(wordOptions));
     const [isAnswered, setIsAnswered] = useState(false);
 
     // useEffect(() => {
