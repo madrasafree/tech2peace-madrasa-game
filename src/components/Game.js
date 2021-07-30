@@ -2,18 +2,13 @@ import React, { useState } from "react";
 import * as utils from "../utils";
 import '../style.css'
 
-let question = "מהו שמי?";
-// let answerTemplate = "";
-let answerTemplate = "שלום שמי %s ואני אוהב לאכול %s מאוד.";
-let initialOptions = ["משה", "אברהם", "יעקב", "פיצה", "סושי"];
-
-let max_answers = (answerTemplate.match(/%s/g) || []).length;
-
-export const Game = () => {
+export const Question = ({question, answerTemplate, wordOptions, correctAnswer}) => {
     const [answers, setAnswers] = useState([]);
-    const [options, setOptions] = useState(initialOptions);
+    const [options, setOptions] = useState(wordOptions);
+    
     const is_orderable = (answerTemplate === "");
-    console.log(answers)
+    const max_answers = (answerTemplate.match(/%s/g) || []).length;
+
 
 
     function makeFullAnswers() {
