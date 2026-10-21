@@ -1,3 +1,6 @@
+> [!WARNING]
+> **FROZEN: no longer maintained (2026-10-21).** A 2021 hackathon prototype (React story game with Arabic audio). Nothing else refers to it.
+
 # Boilerplate React Hooks
 This is a boilerplate created whit create-react-app to use React Hooks and Context API like Redux Architecture
 
